@@ -10,3 +10,10 @@ sudo apt-get update
 sudo apt-get -y install i2c-tools
 sudo apt-get -y install git
 pip3 install smbus2
+
+####Config
+SERVER_URL = "http://13.93.78.173:3000/ap1/v1/beaches/name/" 
+
+BEACH_NAME = "Praia de Mogor"
+#### Run
+python3 main.py
