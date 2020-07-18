@@ -13,11 +13,11 @@ pip3 install smbus2
 
 ####Config
 SERVER_URL = "http://13.93.78.173:3000/ap1/v1/beaches/name/" 
-
 BEACH_NAME = "Praia de Mogor"
+
 #### Run
 python3 main.py
 
 
 ##################################
-i2cdetect -
+https://www.waveshare.com/wiki/SIM868_PPP_Dail-up_Networking
