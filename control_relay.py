@@ -19,7 +19,6 @@ class RelayController:
         self.current_light_state = -1
         self.turn_all_relay_off()
 
-
     def get_relay(self, light_state):
         if light_state == 0:    #Green
             return RELAY_GREEN
@@ -32,11 +31,13 @@ class RelayController:
     def turn_relay(self, light_state):
         if self.current_light_state == light_state:
             return
-        off_relay = self.get_relay(self.current_light_state)
         on_relay = self.get_relay(light_state)
-        self.bus.write_byte_data(DEVICE_ADDR, off_relay, 0x00)
+        if self.current_light_state != -1:
+            off_relay = self.get_relay(self.current_light_state)
+            self.bus.write_byte_data(DEVICE_ADDR, off_relay, 0x00)
         time.sleep(1)
         self.bus.write_byte_data(DEVICE_ADDR, on_relay, 0xFF)
+        self.current_light_state = light_state
 
     def turn_all_relay_off(self):
         self.bus.write_byte_data(DEVICE_ADDR, RELAY_GREEN, 0x00)
