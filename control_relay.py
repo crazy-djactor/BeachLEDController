@@ -1,4 +1,4 @@
-import smbus
+import smbus2
 import sys
 import time
 
