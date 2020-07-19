@@ -1,4 +1,4 @@
-import smbus2
+import smbus2.SMBus
 import sys
 import time
 
@@ -15,7 +15,7 @@ class RelayController:
     current_light_state = 0
 
     def __init__(self):
-        self.bus = smbus.SMBus(DEVICE_BUS)
+        self.bus = SMBus(DEVICE_BUS)
 
         self.current_light_state = 0
 
