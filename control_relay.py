@@ -12,7 +12,7 @@ RELAY_OTHER = 0x04
 
 class RelayController:
     buf = {}
-    current_light_state = 0
+    current_light_state = -1
 
     def __init__(self):
         self.bus = SMBus(DEVICE_BUS)

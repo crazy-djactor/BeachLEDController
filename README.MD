@@ -1,5 +1,17 @@
 ## Light controller by Raspberry Pi
 
+###Device configration
+####Set external wifi dongle to use wifi
+- sudo wget http://downloads.fars-robotics.net/wifi-drivers/install-wifi -O /usr/bin/install-wifi
+- sudo chmod +x /usr/bin/install-wifi
+- sudo install-wifi 
+####Set PPP for SIM7000e-nb-iot HAT
+- https://www.waveshare.com/wiki/SIM868_PPP_Dail-up_Networking
+
+####Enable VNC and I2C of Raspberry pi
+- Enable i2c and vnc configuration on raspi-config. VNC is easy way to control raspberry.
+  
+  
 ####Send request to backend to get light state of every beach
 ####Set 4 state light 
 Device: https://wiki.52pi.com/index.php/DockerPi_4_Channel_Relay_SKU:_EP-0099
@@ -18,6 +30,3 @@ BEACH_NAME = "Praia de Mogor"
 #### Run
 python3 main.py
 
-
-##################################
-https://www.waveshare.com/wiki/SIM868_PPP_Dail-up_Networking
