@@ -11,7 +11,7 @@ def make_requests():
     try:
         resp = requests.get(url=config.SERVER_URL, params=PARAMS)
         beach_state = resp.json()
-        print('make-request={}'.format(beach_state))
+        # print('make-request={}'.format(beach_state))
         light_state = beach_state['light_state']
         return light_state
     except:
@@ -23,7 +23,7 @@ def main_process():
     while True:
         light_state = make_requests()
         if light_state is not None:
-            print('get-request: beach={} light={}'.format(config.BEACH_NAME, light_state))
+            print('get-request: beach={} light={} current={}'.format(config.BEACH_NAME, light_state, relay_controller.current_light_state))
             relay_controller.turn_relay(light_state)
         time.sleep(5)
     pass
