@@ -17,7 +17,7 @@ class RelayController:
     def __init__(self):
         self.bus = SMBus(DEVICE_BUS)
 
-        self.current_light_state = 0
+        self.current_light_state = -1
 
     def get_relay(self, light_state):
         if light_state == 0:    #Green

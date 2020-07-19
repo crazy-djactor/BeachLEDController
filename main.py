@@ -11,6 +11,7 @@ def make_requests():
     try:
         resp = requests.get(url=config.SERVER_URL, params=PARAMS)
         beach_state = resp.json()
+        print('make-request={}'.format(beach_state))
         light_state = beach_state['light_state']
         return light_state
     except:

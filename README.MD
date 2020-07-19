@@ -12,8 +12,8 @@
 - Enable i2c and vnc configuration on raspi-config. VNC is easy way to control raspberry.
   
   
-####Send request to backend to get light state of every beach
-####Set 4 state light 
+###Send request to backend to get light state of every beach
+####Set  4 state light reference 
 Device: https://wiki.52pi.com/index.php/DockerPi_4_Channel_Relay_SKU:_EP-0099
 Module: https://github.com/geeekpi/dockerpi
 
