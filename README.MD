@@ -28,5 +28,11 @@ SERVER_URL = "http://13.93.78.173:3000/ap1/v1/beaches/name/"
 BEACH_NAME = "Praia de Mogor"
 
 #### Run
+git clone https://github.com/crazy-djactor/BeachLEDController.git
+ 
+cd BeachLeadController
+
+pip3 install -r requirement.txt
+
 python3 main.py
 
