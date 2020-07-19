@@ -1,4 +1,4 @@
-import smbus2.SMBus
+from smbus2 import SMBus
 import sys
 import time
 
