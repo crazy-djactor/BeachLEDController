@@ -6,6 +6,7 @@ from os.path import join, dirname
 from control_relay import RelayController
 
 dotenv_path = join(dirname(__file__), '.env')
+print('env_path={}', dotenv_path)
 load_dotenv(dotenv_path)
 
 beach_name = os.getenv('BEACH_NAME')
