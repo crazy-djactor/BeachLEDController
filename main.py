@@ -10,8 +10,9 @@ print('env_path={}', dotenv_path)
 load_dotenv(dotenv_path)
 
 beach_name = os.getenv('BEACH_NAME')
+beach01 = os.environ.get('BEACH_NAME')
 server_url = os.getenv('SERVER_URL')
-print('BEACH={} {}'.format(beach_name, server_url))
+print('BEACH={} {} {}'.format(beach_name, server_url, beach01))
 
 def make_requests():
     PARAMS = {
