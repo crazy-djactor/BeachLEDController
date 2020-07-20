@@ -28,7 +28,7 @@ class RelayController:
         return -1
 
     def turn_relay(self, light_state):
-        if self.current_light_state == light_state:
+        if self.current_light_state != -1 and self.get_relay(light_state) == self.get_relay(self.current_light_state):
             return
         on_relay = self.get_relay(light_state)
         if self.current_light_state != -1:
