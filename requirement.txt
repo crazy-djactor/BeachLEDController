@@ -4,3 +4,4 @@ idna==2.10
 requests==2.24.0
 smbus2==0.3.0
 urllib3==1.25.9
+python-dotenv==0.14.0

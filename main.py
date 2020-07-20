@@ -1,15 +1,23 @@
 import time
 import requests
-import config
+import os
+from dotenv import load_dotenv
+from os.path import join, dirname
 from control_relay import RelayController
+
+dotenv_path = join(dirname(__file__), '.env')
+load_dotenv(dotenv_path)
+
+beach_name = os.getenv('BEACH_NAME')
+server_url = os.getenv('SERVER_URL')
 
 
 def make_requests():
     PARAMS = {
-        'beach_name': config.BEACH_NAME
+        'beach_name': beach_name
     }
     try:
-        resp = requests.get(url=config.SERVER_URL, params=PARAMS)
+        resp = requests.get(url=server_url, params=PARAMS)
         beach_state = resp.json()
         # print('make-request={}'.format(beach_state))
         light_state = beach_state['light_state']
