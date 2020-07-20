@@ -1,0 +1,12 @@
+[Unit]
+Description=Beach Relay Controller
+After=multi-user.target
+StartLimitIntervalSec=10
+
+[Service]
+ExecStart=/usr/bin/python3 /home/pi/Documents/BeachLeadController/main.py
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
