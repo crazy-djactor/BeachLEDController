@@ -20,10 +20,40 @@ After installing driver using vnc you can easily setup your wifi.
     }
 
 - Set up after installation.
-
+    Create wpa_supplicant.conf file with above contents in /etc/wpa_supplicant/ 
+    
 ####Set PPP for SIM7000e-nb-iot HAT
-- https://www.waveshare.com/wiki/SIM868_PPP_Dail-up_Networking
+Refer this https://www.waveshare.com/wiki/SIM868_PPP_Dail-up_Networking
 
+- sudo apt-get install ppp
+- sudo su
+- cd /etc/ppp/peers
+- cp provider gprs
+- sudo nano gprs
+  
+  user "myusername@realm"
+  connect "/user/sbin/chat -v -f /etc/chatscripts/gprs"
+  /dev/ttyUSB2              //sim7000 - dev/ttyUSB2 or dev/ttyS0
+  115200
+  
+  no crtscts
+  debug
+  nodetach
+  ipcp-accpet-local
+  ipcp-accept-remote
+  
+  noipdefault
+  usepeerdns
+  defaultroute
+  persist
+  noauth
+
+- And edit /etc/chatscripts/gprs
+ Here replace pin number and APN provider.
+- Excute the command as below to run it in the background
+  pppd call gprs &
+  route add -net 0.0.0.0 ppp0
+   
 ####Enable VNC and I2C of Raspberry pi
 - Enable i2c and vnc configuration on raspi-config. VNC is easy way to control raspberry.
   
@@ -38,10 +68,7 @@ sudo apt-get update
 sudo apt-get -y install i2c-tools
 sudo apt-get -y install git
 pip3 install smbus2
-
-####Config
-SERVER_URL = "http://13.93.78.173:3000/ap1/v1/beaches/name/" 
-BEACH_NAME = "Praia de Mogor"
+"
 
 #### Run
 git clone https://github.com/crazy-djactor/BeachLEDController.git
