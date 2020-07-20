@@ -1,5 +1,4 @@
 from smbus2 import SMBus
-import sys
 import time
 
 DEVICE_BUS = 1

@@ -31,7 +31,7 @@ def main_process():
     while True:
         light_state = make_requests()
         if light_state is not None:
-            print('get-request: beach={} light={} current={}'.format(config.BEACH_NAME, light_state, relay_controller.current_light_state))
+            print('get-request: beach={} light={} current={}'.format(beach_name, light_state, relay_controller.current_light_state))
             relay_controller.turn_relay(light_state)
         time.sleep(5)
     pass
