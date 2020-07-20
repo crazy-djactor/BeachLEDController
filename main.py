@@ -6,7 +6,7 @@ from control_relay import RelayController
 import json
 
 
-_current_path = os.getcwd()
+_current_path = os.path.dirname(os.path.abspath(__file__))
 config_path = join(_current_path, 'config.json')
 print('config={}', config_path)
 
