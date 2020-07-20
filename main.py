@@ -6,7 +6,7 @@ from os.path import join, dirname
 from control_relay import RelayController
 
 _current_path = os.getcwd()
-dotenv_path = join(dirname(_current_path), '.env')
+dotenv_path = join(_current_path, '.env')
 print('env_path={}', dotenv_path)
 load_dotenv(dotenv_path)
 
