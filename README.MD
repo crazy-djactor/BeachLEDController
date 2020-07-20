@@ -54,5 +54,5 @@ python3 main.py
 
 ######Install services for running 24/7
 cp ./controller.service /etc/systemd/system/led_controller.service
-sudo systemctl reload-daemon
+sudo systemctl daemon-reload
 sudo systemctl start led_controller.service
