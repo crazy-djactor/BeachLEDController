@@ -1,19 +1,22 @@
 import time
 import requests
 import os
-from dotenv import load_dotenv
-from os.path import join, dirname
+from os.path import join
 from control_relay import RelayController
+import json
+
 
 _current_path = os.getcwd()
-dotenv_path = join(_current_path, '.env')
-print('env_path={}', dotenv_path)
-load_dotenv(dotenv_path)
+config_path = join(_current_path, 'config.json')
+print('config={}', config_path)
 
-beach_name = os.getenv('BEACH_NAME')
-beach01 = os.environ.get('BEACH_NAME')
-server_url = os.getenv('SERVER_URL')
-print('BEACH={} {} {}'.format(beach_name, server_url, beach01))
+with open(config_path) as json_data_file:
+    config_data = json.load(json_data_file)
+print(config_data)
+beach_name = config_data['BEACH_NAME']
+server_url = config_data['SERVER_URL']
+
+print('BEACH={} {}'.format(beach_name, server_url))
 
 
 def make_requests():
