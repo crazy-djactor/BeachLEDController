@@ -5,7 +5,8 @@ from dotenv import load_dotenv
 from os.path import join, dirname
 from control_relay import RelayController
 
-dotenv_path = join(dirname(__file__), '.env')
+_current_path = os.getcwd()
+dotenv_path = join(dirname(_current_path), '.env')
 print('env_path={}', dotenv_path)
 load_dotenv(dotenv_path)
 
@@ -13,6 +14,7 @@ beach_name = os.getenv('BEACH_NAME')
 beach01 = os.environ.get('BEACH_NAME')
 server_url = os.getenv('SERVER_URL')
 print('BEACH={} {} {}'.format(beach_name, server_url, beach01))
+
 
 def make_requests():
     PARAMS = {
