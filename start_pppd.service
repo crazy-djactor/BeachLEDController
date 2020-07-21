@@ -1,0 +1,12 @@
+[Unit]
+Description=Beach Relay Controller
+After=multi-user.target
+StartLimitIntervalSec=10
+
+[Service]
+ExecStart=bash /home/pi/Documents/BeachLEDController/run_pppd.sh
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
