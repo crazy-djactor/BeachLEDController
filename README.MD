@@ -11,7 +11,7 @@ After installing driver using vnc you can easily setup your wifi.
 - Create wpa_supplicant.conf in boot directory when install new system on raspberry pi.
   Put the following contents.
   
-    country=US
+    country=GB
     ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
     update_config=1
     network={
