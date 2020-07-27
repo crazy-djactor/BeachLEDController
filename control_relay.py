@@ -17,6 +17,7 @@ class RelayController:
         self.bus = SMBus(DEVICE_BUS)
         self.current_light_state = -1
         self.turn_all_relay_off()
+        self.repeat_time = 0
 
     def get_relay(self, light_state):
         if light_state == 0:    #Green
@@ -29,7 +30,12 @@ class RelayController:
 
     def turn_relay(self, light_state):
         if self.current_light_state != -1 and self.get_relay(light_state) == self.get_relay(self.current_light_state):
+            self.repeat_time = (self.repeat_time + 1) % 20
+            if self.repeat_time == 19:
+                on_relay = self.get_relay(light_state)
+                self.bus.write_byte_data(DEVICE_ADDR, on_relay, 0xFF)
             return
+        self.repeat_time = 0
         on_relay = self.get_relay(light_state)
         if self.current_light_state != -1:
             off_relay = self.get_relay(self.current_light_state)
